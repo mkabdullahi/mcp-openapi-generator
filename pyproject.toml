@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "mcp-openapi-generator"
-version = "1.0.0"
+version = "1.0.1"
 description = "MCP server for OpenAPI code generation (openapi-generator, swagger-codegen) and validation (Spectral, Vacuum)"
 readme = "README.md"
 license = {text = "MIT"}
