@@ -27,14 +27,17 @@ configSchema:
       enum:
         - typescript-axios
         - typescript-fetch
+        - typescript-node
         - python
         - python-aiohttp
-        - java-spring
+        - spring
+        - spring-boot
         - kotlin-spring
         - go
         - go-gin
+        - csharp-netcore
         - rust
-        - swift
+        - swift5
       default: "typescript-axios"
     defaultValidationTool:
       type: string
