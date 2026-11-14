@@ -1,9 +1,7 @@
 # MCP OpenAPI Generator
 
-[![PyPI version](https://img.shields.io/pypi/v/mcp-openapi-generator.svg)](https://pypi.org/project/mcp-openapi-generator/)
-[![Python Version](https://img.shields.io/pypi/pyversions/mcp-openapi-generator.svg)](https://pypi.org/project/mcp-openapi-generator/)
+[![PyPI version](https://img.shields.io/pypi/v/mcp-openapi-generator.svg?cacheSeconds=300)](https://pypi.org/project/mcp-openapi-generator/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Smithery](https://img.shields.io/badge/Smithery-registered-blue.svg)](https://smithery.ai)
 
 An **MCP (Model Context Protocol) server** that provides OpenAPI code generation and validation capabilities to AI assistants. Wraps industry-standard tools:
 
