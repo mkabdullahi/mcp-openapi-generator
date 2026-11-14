@@ -1,0 +1,19 @@
+openapi: 3.0.3
+info:
+  title: Smoke Test API
+  version: 1.0.0
+  description: Minimal API used for local generator and validator integration tests.
+  contact:
+    name: API Support
+    email: support@example.com
+servers:
+  - url: https://api.example.com
+paths:
+  /health:
+    get:
+      operationId: getHealth
+      summary: Check service health
+      description: Returns a health status.
+      responses:
+        "200":
+          description: The service is healthy.

@@ -1,0 +1,92 @@
+# Smithery manifest for MCP OpenAPI Generator
+# See https://smithery.ai/docs for more information
+
+name: "mcp-openapi-generator"
+version: "1.0.0"
+description: "MCP server for OpenAPI code generation (openapi-generator, swagger-codegen) and validation (Spectral, Vacuum)"
+author: "M.K. Abdullahi"
+license: "MIT"
+repository: "https://github.com/mkabdullahi/mcp-openapi-generator"
+homepage: "https://github.com/mkabdullahi/mcp-openapi-generator"
+
+# Start command for the MCP server
+startCommand: "python -m mcp_openapi_generator.server"
+
+# Docker configuration for Smithery
+docker:
+  buildContext: "."
+  dockerfile: "Dockerfile"
+
+# Configuration schema for user customization
+configSchema:
+  type: object
+  properties:
+    defaultTarget:
+      type: string
+      description: "Default generation target when not specified"
+      enum:
+        - typescript-axios
+        - typescript-fetch
+        - python
+        - python-aiohttp
+        - java-spring
+        - kotlin-spring
+        - go
+        - go-gin
+        - rust
+        - swift
+      default: "typescript-axios"
+    defaultValidationTool:
+      type: string
+      description: "Default validation tool"
+      enum:
+        - spectral
+        - vacuum
+      default: "spectral"
+    generateTests:
+      type: boolean
+      description: "Generate test stubs by default"
+      default: true
+    postProcess:
+      type: boolean
+      description: "Apply formatting and post-processing by default"
+      default: true
+
+# Example usage for Smithery
+examples:
+  - name: "Generate TypeScript client from Petstore"
+    description: "Generate a TypeScript Axios client from the Petstore API"
+    config:
+      defaultTarget: "typescript-axios"
+    toolCalls:
+      - tool: "generate-client"
+        arguments:
+          spec:
+            source: "url"
+            location: "https://petstore.swagger.io/v2/swagger.json"
+          target: "typescript-axios"
+          output_dir: "./petstore-client"
+
+  - name: "Validate OpenAPI spec"
+    description: "Validate an OpenAPI specification using Spectral"
+    config:
+      defaultValidationTool: "spectral"
+    toolCalls:
+      - tool: "validate-spec"
+        arguments:
+          spec:
+            source: "url"
+            location: "https://petstore.swagger.io/v2/swagger.json"
+          tool: "spectral"
+
+  - name: "List available generators"
+    description: "List available code generators and their targets"
+    toolCalls:
+      - tool: "list-generators"
+        arguments: {}
+
+  - name: "Infer project configuration"
+    description: "Infer project configuration and suggest generation target"
+    toolCalls:
+      - tool: "infer-project"
+        arguments: {}
